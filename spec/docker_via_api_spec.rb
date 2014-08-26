@@ -62,9 +62,9 @@ describe Centurion::DockerViaApi do
 
   it 'stops a container' do
     expect(Excon).to receive(:post).
-                     with(excon_uri + "v1.7" + "/containers/12345/stop?t=30").
+                     with(excon_uri + "v1.7" + "/containers/12345/stop?t=300").
                      and_return(double(status: 204))
-    api.stop_container('12345')
+    api.stop_container('12345', 300)
   end
 
   it 'inspects a container' do
